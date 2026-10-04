@@ -46,19 +46,22 @@ export function EventTimeline({ events, meta }: { events?: SpaceEvent[], meta?: 
               {getIcon(evt.kind)}
             </div>
             
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-4">
-              <div>
-                <div className="text-[14px] font-medium text-brand-text group-hover:text-white transition-colors">{evt.title}</div>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4">
+                  <div className="text-[14px] font-medium text-brand-text group-hover:text-white transition-colors leading-tight">
+                    <span className="text-brand-accent uppercase text-[11px] font-bold tracking-wider mr-2 sm:hidden">[{evt.kind.replace('_', ' ')}]</span>
+                    {evt.title}
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 shrink-0">
+                    {isHistorical && <span className="text-[11px] font-semibold text-brand-warning/80 bg-brand-warning/10 px-1.5 py-0.5 rounded">PAST</span>}
+                    <span className="text-[11px] sm:text-[12px] bg-brand-panel border border-brand-border px-2 py-0.5 rounded text-brand-muted">{evt.source}</span>
+                    <span className="text-[11px] sm:text-[12px] font-mono text-brand-muted">{format(new Date(evt.time), "MMM dd, HH:mm 'UTC'")}</span>
+                  </div>
+                </div>
                 {evt.detail && (
-                  <p className="text-[13px] text-brand-muted mt-1 leading-relaxed">{evt.detail}</p>
+                  <p className="text-[13px] text-brand-muted mt-2 leading-relaxed break-words line-clamp-3 sm:line-clamp-none">{evt.detail}</p>
                 )}
               </div>
-              <div className="flex items-center gap-3 shrink-0 mt-2 sm:mt-0">
-                {isHistorical && <span className="text-[11px] font-semibold text-brand-warning/80 bg-brand-warning/10 px-1.5 py-0.5 rounded">PAST</span>}
-                <span className="text-[12px] bg-brand-panel border border-brand-border px-2 py-0.5 rounded text-brand-muted">{evt.source}</span>
-                <span className="text-[12px] font-mono text-brand-muted">{format(new Date(evt.time), "MMM dd, HH:mm 'UTC'")}</span>
-              </div>
-            </div>
           </div>
         )})}
       </div>

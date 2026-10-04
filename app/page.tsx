@@ -92,7 +92,7 @@ export default function Dashboard() {
               <StatusCard status={data?.status} scales={data?.scales?.data} />
             </div>
             
-            <div className="lg:col-span-7 grid grid-cols-2 gap-4 lg:gap-6 min-w-0">
+            <div className="lg:col-span-7 grid grid-cols-1 min-[380px]:grid-cols-2 gap-4 lg:gap-6 min-w-0">
               <MetricCard 
                 label="Geomagnetic Kp" 
                 value={data?.kp?.current?.kp?.toFixed(2) || "--"} 

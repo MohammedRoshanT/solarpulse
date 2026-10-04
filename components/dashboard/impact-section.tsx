@@ -73,14 +73,14 @@ export function ImpactSection({ scales }: { scales?: Scales | null }) {
 
       <div className="glass-panel p-4 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6 text-[13px] text-brand-muted">
         <span className="font-semibold text-brand-text">How it works:</span>
-        <div className="flex items-center gap-2">
-          <span>Sun</span> <ArrowRight className="w-4 h-4" />
+        <div className="flex flex-col md:flex-row items-center gap-3 md:gap-2">
+          <span>Sun</span> <ArrowRight className="w-4 h-4 rotate-90 md:rotate-0" />
         </div>
-        <div className="flex items-center gap-2">
-          <span>Solar Wind / CME</span> <ArrowRight className="w-4 h-4" />
+        <div className="flex flex-col md:flex-row items-center gap-3 md:gap-2">
+          <span>Solar Wind / CME</span> <ArrowRight className="w-4 h-4 rotate-90 md:rotate-0" />
         </div>
-        <div className="flex items-center gap-2">
-          <span>Earth&apos;s Magnetosphere</span> <ArrowRight className="w-4 h-4" />
+        <div className="flex flex-col md:flex-row items-center gap-3 md:gap-2">
+          <span>Earth&apos;s Magnetosphere</span> <ArrowRight className="w-4 h-4 rotate-90 md:rotate-0" />
         </div>
         <div>Impact Effects</div>
       </div>

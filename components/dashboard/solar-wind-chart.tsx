@@ -20,7 +20,7 @@ export function SolarWindChart({ data, meta }: { data?: WindPoint[], meta?: Sour
   };
 
   return (
-    <div className="glass-panel p-6">
+    <div className="glass-panel p-4 sm:p-6">
       <div className="flex justify-between items-center mb-6">
         <div>
           <h3 className="text-[16px] font-semibold text-brand-text">Solar Wind Speed</h3>
@@ -34,7 +34,7 @@ export function SolarWindChart({ data, meta }: { data?: WindPoint[], meta?: Sour
             <XAxis 
               dataKey="time" 
               tickFormatter={formatTime}
-              minTickGap={50}
+              minTickGap={70}
               tick={{ fontSize: 11, fill: 'var(--color-brand-muted)' }}
               stroke="var(--color-brand-border)"
             />

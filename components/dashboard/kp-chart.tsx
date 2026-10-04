@@ -19,7 +19,7 @@ export function KpChart({ data, meta }: { data?: KpPoint[], meta?: SourceMeta })
   };
 
   return (
-    <div className="glass-panel p-6">
+    <div className="glass-panel p-4 sm:p-6">
       <div className="flex justify-between items-center mb-6">
         <div>
           <h3 className="text-[16px] font-semibold text-brand-text">Planetary Kp Index</h3>
@@ -36,7 +36,7 @@ export function KpChart({ data, meta }: { data?: KpPoint[], meta?: SourceMeta })
             <XAxis 
               dataKey="time" 
               tickFormatter={formatTime}
-              minTickGap={50}
+              minTickGap={70}
               tick={{ fontSize: 11, fill: 'var(--color-brand-muted)' }}
               stroke="var(--color-brand-border)"
             />

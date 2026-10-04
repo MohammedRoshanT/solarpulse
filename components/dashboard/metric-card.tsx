@@ -54,10 +54,10 @@ export function MetricCard({ label, value, unit, meaning, meta, tooltipText, acc
       </div>
 
       <div className="flex items-baseline gap-2 my-1">
-        <span className={clsx("text-4xl font-mono font-medium tracking-tight", isUnavailable ? "text-brand-muted" : "text-brand-text")}>
+        <span className={clsx("text-3xl lg:text-4xl font-mono font-medium tracking-tight", isUnavailable ? "text-brand-muted" : "text-brand-text")}>
           {isUnavailable ? "--" : value}
         </span>
-        {unit && <span className="text-[14px] font-mono text-brand-muted">{unit}</span>}
+        {unit && <span className="text-[12px] lg:text-[14px] font-mono text-brand-muted">{unit}</span>}
       </div>
 
       <div className="text-[13px] text-brand-text/80 mb-3 line-clamp-1">{meaning}</div>
