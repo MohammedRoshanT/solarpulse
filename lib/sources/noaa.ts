@@ -38,11 +38,11 @@ function getStatus(dataTimeStr: string | undefined, maxAgeMins: number): SourceS
 // 1. Kp Index
 export async function getKpIndex(): Promise<{ meta: SourceMeta; data: KpPoint[]; current?: KpPoint }> {
   try {
-    const raw = await fetchJson<string[][]>("/products/noaa-planetary-k-index.json");
-    // Format: ["time_tag", "Kp", "a_running", "station_count"], ["2026-09-29T15:00:00", "0.67", "3", "8"]
-    const data: KpPoint[] = raw.slice(1).map((row) => ({
-      time: row[0] + "Z",
-      kp: parseFloat(row[1]),
+    const raw = await fetchJson<any[]>("/products/noaa-planetary-k-index.json");
+    const valid = raw.filter(row => row.time_tag);
+    const data: KpPoint[] = valid.map((row) => ({
+      time: row.time_tag + "Z",
+      kp: parseFloat(row.Kp),
       observed: true,
     }));
     const current = data[data.length - 1];

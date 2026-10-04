@@ -19,7 +19,13 @@ export function MetricCard({ label, value, unit, meaning, meta, tooltipText }: M
 
   const isStale = meta.status === "stale";
   const isUnavailable = meta.status === "unavailable";
-  const dataTime = meta.dataTime ? format(new Date(meta.dataTime), "HH:mm 'UTC'") : "--:--";
+  let dataTimeStr = "--:--";
+  if (meta.dataTime) {
+    const dt = new Date(meta.dataTime);
+    if (!isNaN(dt.getTime())) {
+      dataTimeStr = format(dt, "HH:mm 'UTC'");
+    }
+  }
 
   return (
     <div className="glass-panel p-5 flex flex-col justify-between transition-transform hover:-translate-y-[2px] duration-300 group">
@@ -51,7 +57,7 @@ export function MetricCard({ label, value, unit, meaning, meta, tooltipText }: M
 
       <div className="flex justify-between items-center text-[11px] font-mono text-brand-muted/60 border-t border-brand-border/40 pt-2">
         <span>{meta.source}</span>
-        <span>{dataTime}</span>
+        <span>{dataTimeStr}</span>
       </div>
     </div>
   );
