@@ -18,7 +18,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [refreshTimestamp, setRefreshTimestamp] = useState<number>(Date.now());
+  const [refreshTimestamp, setRefreshTimestamp] = useState<number>(Date.now);
 
   const fetchData = useCallback(async (isRefresh = false) => {
     if (isRefresh) setRefreshing(true);

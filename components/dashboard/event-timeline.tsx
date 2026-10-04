@@ -38,7 +38,7 @@ export function EventTimeline({ events, meta }: { events?: SpaceEvent[], meta?: 
       </div>
 
       <div className="space-y-4">
-        {displayEvents.map((evt, i) => {
+        {displayEvents.map((evt) => {
           const isHistorical = (new Date().getTime() - new Date(evt.time).getTime()) > 24 * 60 * 60 * 1000;
           return (
           <div key={evt.id} className="group relative pl-6 border-l border-brand-border/50 pb-4 last:pb-0 last:border-transparent">

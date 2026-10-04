@@ -8,6 +8,7 @@ export function SDOImage({ timestamp }: { timestamp: number }) {
   const imageUrl = `https://sdo.gsfc.nasa.gov/assets/img/latest/latest_512_0304.jpg?t=${timestamp}`;
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
   }, [timestamp]);
 
@@ -24,6 +25,7 @@ export function SDOImage({ timestamp }: { timestamp: number }) {
             <Loader2 className="w-6 h-6 animate-spin" />
           </div>
         )}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img 
           src={imageUrl} 
           alt="NASA Solar Dynamics Observatory AIA 304" 
