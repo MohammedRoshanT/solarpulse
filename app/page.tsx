@@ -7,6 +7,7 @@ import { MetricCard } from "@/components/dashboard/metric-card";
 import { KpChart } from "@/components/dashboard/kp-chart";
 import { XrayChart } from "@/components/dashboard/xray-chart";
 import { SolarWindChart } from "@/components/dashboard/solar-wind-chart";
+import { SDOImage } from "@/components/dashboard/sdo-image";
 import { EventTimeline } from "@/components/dashboard/event-timeline";
 import { ImpactSection } from "@/components/dashboard/impact-section";
 import { SourcesSection } from "@/components/dashboard/sources-section";
@@ -17,9 +18,11 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [refreshTimestamp, setRefreshTimestamp] = useState<number>(Date.now());
 
   const fetchData = useCallback(async (isRefresh = false) => {
     if (isRefresh) setRefreshing(true);
+    setRefreshTimestamp(Date.now());
     try {
       const res = await fetch("/api/space-weather");
       if (!res.ok) throw new Error("Failed to fetch dashboard data");
@@ -132,7 +135,14 @@ export default function Dashboard() {
         <section id="charts" className="scroll-mt-24 space-y-6">
           <h2 className="text-xl font-semibold text-brand-text px-2">Telemetry</h2>
           <div className="grid grid-cols-1 gap-6">
-            <KpChart data={data?.kp?.data} meta={data?.kp?.meta} />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div className="lg:col-span-8">
+                <KpChart data={data?.kp?.data} meta={data?.kp?.meta} />
+              </div>
+              <div className="lg:col-span-4">
+                <SDOImage timestamp={refreshTimestamp} />
+              </div>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 min-w-0">
               <XrayChart data={data?.xray?.data} meta={data?.xray?.meta} />
               <SolarWindChart data={data?.wind?.data} meta={data?.wind?.meta} />
