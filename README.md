@@ -50,7 +50,7 @@ This dashboard fetches data exclusively from official, public government space-w
 1. **Clone the repository:**
    ```bash
    git clone <repository-url>
-   cd nasa-space-apps-challenge
+   cd  solarpulse
    ```
 2. **Install dependencies:**
    ```bash
