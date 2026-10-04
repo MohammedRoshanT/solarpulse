@@ -1,3 +1,4 @@
+
 # SolarPulse
 
 > **Space weather, as it happens.**
@@ -6,8 +7,9 @@ SolarPulse is a production-quality, single-page Space Weather Dashboard built fo
 
 It converts live NOAA observations into a clear, visually polished overview of solar activity, geomagnetic storms, solar wind, and recent space-weather events.
 
-![SolarPulse Dashboard Screenshot 1](placeholder-screenshot-1.png)
-![SolarPulse Dashboard Screenshot 2](placeholder-screenshot-2.png)
+<img width="1911" height="1088" alt="Screenshot 2026-10-04 112343" src="https://github.com/user-attachments/assets/d74009f2-a287-407a-a13e-663007a3ab71" />
+
+<img width="1897" height="1083" alt="Screenshot 2026-10-04 112331" src="https://github.com/user-attachments/assets/17bd2065-5697-42f2-aafe-1f2256bfa32f" />
 
 ## Overview & Key Features
 
