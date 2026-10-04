@@ -10,9 +10,10 @@ interface MetricCardProps {
   meaning: string;
   meta?: SourceMeta;
   tooltipText: string;
+  accentType?: "teal" | "amber" | "cyan" | "blue";
 }
 
-export function MetricCard({ label, value, unit, meaning, meta, tooltipText }: MetricCardProps) {
+export function MetricCard({ label, value, unit, meaning, meta, tooltipText, accentType }: MetricCardProps) {
   if (!meta) {
     return <div className="glass-panel p-5 animate-pulse min-h-[140px]" />;
   }
@@ -27,8 +28,14 @@ export function MetricCard({ label, value, unit, meaning, meta, tooltipText }: M
     }
   }
 
+  const accentClass = 
+    accentType === "teal" ? "border-t-brand-teal" : 
+    accentType === "amber" ? "border-t-brand-amber" : 
+    accentType === "cyan" ? "border-t-[#38bdf8]" : 
+    accentType === "blue" ? "border-t-brand-blue" : "border-t-transparent";
+
   return (
-    <div className="glass-panel p-5 flex flex-col justify-between transition-transform hover:-translate-y-[2px] duration-300 group">
+    <div className={clsx("glass-panel p-5 flex flex-col justify-between transition-transform hover:-translate-y-[2px] duration-300 group border-t-2", accentClass)}>
       <div className="flex justify-between items-start mb-2">
         <div className="flex items-center gap-1.5">
           <h3 className="text-[13px] font-semibold text-brand-muted uppercase tracking-wider">{label}</h3>

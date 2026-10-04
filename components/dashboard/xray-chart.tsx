@@ -65,7 +65,7 @@ export function XrayChart({ data, meta }: { data?: XrayPoint[], meta?: SourceMet
             <Line 
               type="monotone" 
               dataKey="fluxWm2" 
-              stroke="var(--color-brand-accent)" 
+              stroke="var(--color-brand-amber)" 
               dot={false}
               strokeWidth={2}
               isAnimationActive={false}

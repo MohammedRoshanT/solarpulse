@@ -52,7 +52,7 @@ export function SolarWindChart({ data, meta }: { data?: WindPoint[], meta?: Sour
             <Line 
               type="monotone" 
               dataKey="speedKms" 
-              stroke="#A78BFA" 
+              stroke="var(--color-brand-teal)" 
               dot={false}
               strokeWidth={2}
               isAnimationActive={false}

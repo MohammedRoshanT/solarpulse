@@ -96,6 +96,7 @@ export default function Dashboard() {
                 meaning="Global planetary disturbance index."
                 meta={data?.kp?.meta}
                 tooltipText="A measure of disruptions to Earth's magnetic field. Values >= 5 indicate a geomagnetic storm."
+                accentType="teal"
               />
               <MetricCard 
                 label="Solar Flare" 
@@ -103,6 +104,7 @@ export default function Dashboard() {
                 meaning={`Current flux: ${data?.xray?.current?.fluxWm2?.toExponential(2) || "--"} W/m²`}
                 meta={data?.xray?.meta}
                 tooltipText="Current classification based on GOES X-ray flux. M and X class flares can cause radio blackouts."
+                accentType="amber"
               />
               <MetricCard 
                 label="Solar Wind" 
@@ -111,6 +113,7 @@ export default function Dashboard() {
                 meaning={data?.wind?.current?.densityCm3 ? `Density: ${data.wind.current.densityCm3.toFixed(1)} p/cm³` : "Speed of charged particles from the Sun."}
                 meta={data?.wind?.meta}
                 tooltipText="Speeds > 500 km/s can trigger geomagnetic storms if the magnetic field is oriented southward."
+                accentType="cyan"
               />
               <MetricCard 
                 label="IMF Bz" 
@@ -119,6 +122,7 @@ export default function Dashboard() {
                 meaning={Number(data?.bz?.current?.bzNt) < 0 ? "Southward (increases storm risk)" : "Northward (protective)"}
                 meta={data?.bz?.meta}
                 tooltipText="Z-component of the Interplanetary Magnetic Field. Negative (southward) values allow solar wind to transfer energy to Earth."
+                accentType="blue"
               />
             </div>
           </div>

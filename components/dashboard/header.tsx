@@ -11,8 +11,8 @@ export function Header({ generatedAt, onRefresh, isRefreshing }: { generatedAt?:
       <div className="max-w-[1440px] mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="relative">
-            <Sun className="w-6 h-6 text-brand-accent" />
-            <div className="absolute inset-0 bg-brand-accent blur-md opacity-30"></div>
+            <Sun className="w-6 h-6 text-brand-amber" />
+            <div className="absolute inset-0 bg-brand-amber blur-md opacity-40"></div>
           </div>
           <div>
             <h1 className="font-semibold text-[18px] leading-none tracking-wide text-brand-text">Heliowatch</h1>

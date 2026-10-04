@@ -213,24 +213,39 @@ export async function getAlerts(): Promise<{ meta: SourceMeta; data: SpaceEvent[
       else if (tl.includes("geomagnetic")) kind = "geomagnetic_storm";
       else if (tl.includes("coronal mass ejection")) kind = "cme";
 
+      // Make detail human readable and short
+      let detail = "A space weather event has been logged.";
+      const commentIdx = d.message.indexOf("Comment:");
+      if (commentIdx > -1) {
+        detail = d.message.substring(commentIdx + 8).replace(/\n/g, " ").trim();
+      } else {
+        const payloadLine = lines.find((l: string) => l.length > 30 && !l.startsWith("Space Weather") && !l.startsWith("WARNING") && !l.startsWith("ALERT"));
+        if (payloadLine) detail = payloadLine;
+      }
+      detail = detail.substring(0, 100).trim();
+      if (detail.length >= 100) detail += "...";
+
       return {
         id: `alert-${d.issue_datetime}-${i}`,
         time: d.issue_datetime.replace(" ", "T") + "Z",
         kind,
         title,
-        detail: d.message.substring(0, 200).replace(/\n/g, " ") + (d.message.length > 200 ? "..." : ""),
+        detail,
         source: "NOAA SWPC",
       };
     });
+
+    data.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+    const recentData = data.filter(evt => differenceInMinutes(new Date(), new Date(evt.time)) < 7 * 24 * 60);
 
     return {
       meta: {
         source: "NOAA SWPC",
         fetchedAt: new Date().toISOString(),
         status: "ok",
-        dataTime: data[0]?.time,
+        dataTime: recentData[0]?.time,
       },
-      data,
+      data: recentData,
     };
   } catch (error) {
     return {

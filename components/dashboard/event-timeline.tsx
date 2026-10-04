@@ -38,9 +38,11 @@ export function EventTimeline({ events, meta }: { events?: SpaceEvent[], meta?: 
       </div>
 
       <div className="space-y-4">
-        {displayEvents.map((evt, i) => (
+        {displayEvents.map((evt, i) => {
+          const isHistorical = (new Date().getTime() - new Date(evt.time).getTime()) > 24 * 60 * 60 * 1000;
+          return (
           <div key={evt.id} className="group relative pl-6 border-l border-brand-border/50 pb-4 last:pb-0 last:border-transparent">
-            <div className="absolute -left-[9px] top-1 bg-[#070A10] p-0.5 rounded-full border border-brand-border">
+            <div className="absolute -left-[9px] top-1 bg-[#050912] p-0.5 rounded-full border border-brand-border">
               {getIcon(evt.kind)}
             </div>
             
@@ -52,12 +54,13 @@ export function EventTimeline({ events, meta }: { events?: SpaceEvent[], meta?: 
                 )}
               </div>
               <div className="flex items-center gap-3 shrink-0 mt-2 sm:mt-0">
+                {isHistorical && <span className="text-[11px] font-semibold text-brand-warning/80 bg-brand-warning/10 px-1.5 py-0.5 rounded">PAST</span>}
                 <span className="text-[12px] bg-brand-panel border border-brand-border px-2 py-0.5 rounded text-brand-muted">{evt.source}</span>
                 <span className="text-[12px] font-mono text-brand-muted">{format(new Date(evt.time), "MMM dd, HH:mm 'UTC'")}</span>
               </div>
             </div>
           </div>
-        ))}
+        )})}
       </div>
 
       {events.length > 8 && !expanded && (

@@ -55,7 +55,7 @@ export function KpChart({ data, meta }: { data?: KpPoint[], meta?: SourceMeta })
             <ReferenceLine y={5} stroke="var(--color-brand-severe)" strokeDasharray="3 3" label={{ position: 'insideTopLeft', value: 'G1 Storm', fill: 'var(--color-brand-severe)', fontSize: 11 }} />
             <Bar dataKey="kp" radius={[2, 2, 0, 0]}>
               {data.map((entry, index) => {
-                const color = entry.kp >= 5 ? 'var(--color-brand-severe)' : entry.kp >= 4 ? 'var(--color-brand-warning)' : 'var(--color-brand-success)';
+                const color = entry.kp >= 5 ? 'var(--color-brand-severe)' : entry.kp >= 4 ? 'var(--color-brand-warning)' : 'var(--color-brand-teal)';
                 return <Cell key={`cell-${index}`} fill={color} />;
               })}
             </Bar>
