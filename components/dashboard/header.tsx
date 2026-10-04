@@ -15,7 +15,7 @@ export function Header({ generatedAt, onRefresh, isRefreshing }: { generatedAt?:
             <div className="absolute inset-0 bg-brand-amber blur-md opacity-40"></div>
           </div>
           <div>
-            <h1 className="font-semibold text-[18px] leading-none tracking-wide text-brand-text">Heliowatch</h1>
+            <h1 className="font-semibold text-[18px] leading-none tracking-wide text-brand-text">SolarPulse</h1>
             <span className="text-[12px] text-brand-muted hidden sm:block mt-1">Space weather, as it happens.</span>
           </div>
         </div>

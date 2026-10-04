@@ -50,7 +50,7 @@ export default function Dashboard() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4">
         <div className="w-8 h-8 border-2 border-brand-accent border-t-transparent rounded-full animate-spin"></div>
-        <p className="text-brand-muted font-mono text-[14px]">Initializing Heliowatch telemetry...</p>
+        <p className="text-brand-muted font-mono text-[14px]">Initializing SolarPulse telemetry...</p>
       </div>
     );
   }

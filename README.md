@@ -1,13 +1,13 @@
-# Heliowatch
+# SolarPulse
 
 > **Space weather, as it happens.**
 
-Heliowatch is a production-quality, single-page Space Weather Dashboard built for the **μLearn / NASA Space Apps preselection challenge: "Space Weather Dashboard"**.
+SolarPulse is a production-quality, single-page Space Weather Dashboard built for the **μLearn / NASA Space Apps preselection challenge: "Space Weather Dashboard"**.
 
 It converts live NOAA observations into a clear, visually polished overview of solar activity, geomagnetic storms, solar wind, and recent space-weather events.
 
-![Heliowatch Dashboard Screenshot 1](placeholder-screenshot-1.png)
-![Heliowatch Dashboard Screenshot 2](placeholder-screenshot-2.png)
+![SolarPulse Dashboard Screenshot 1](placeholder-screenshot-1.png)
+![SolarPulse Dashboard Screenshot 2](placeholder-screenshot-2.png)
 
 ## Overview & Key Features
 
@@ -41,7 +41,7 @@ This dashboard fetches data exclusively from official, public government space-w
 - Alerts & Watches: `https://services.swpc.noaa.gov/products/alerts.json`
 
 **NASA CCMC DONKI:**
-- *Note:* During integration testing, the NASA DONKI API (`https://ccmc.gsfc.nasa.gov/DONKI-API/get/FLR`) was verified but observed to timeout consistently. To maintain dashboard resilience, Heliowatch gracefully marks DONKI as unavailable and relies on NOAA SWPC for all space event telemetry.
+- *Note:* During integration testing, the NASA DONKI API (`https://ccmc.gsfc.nasa.gov/DONKI-API/get/FLR`) was verified but observed to timeout consistently. To maintain dashboard resilience, SolarPulse gracefully marks DONKI as unavailable and relies on NOAA SWPC for all space event telemetry.
 
 ## Local Setup
 

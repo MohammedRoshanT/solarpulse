@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="64" fill="#050912"/>
+  <circle cx="128" cy="128" r="48" fill="none" stroke="#F2A65A" stroke-width="20"/>
+  <!-- Sun rays -->
+  <line x1="128" y1="24" x2="128" y2="48" stroke="#F2A65A" stroke-width="20" stroke-linecap="round"/>
+  <line x1="128" y1="208" x2="128" y2="232" stroke="#F2A65A" stroke-width="20" stroke-linecap="round"/>
+  <line x1="24" y1="128" x2="48" y2="128" stroke="#F2A65A" stroke-width="20" stroke-linecap="round"/>
+  <line x1="208" y1="128" x2="232" y2="128" stroke="#F2A65A" stroke-width="20" stroke-linecap="round"/>
+  <line x1="54.5" y1="54.5" x2="71.5" y2="71.5" stroke="#F2A65A" stroke-width="20" stroke-linecap="round"/>
+  <line x1="184.5" y1="184.5" x2="201.5" y2="201.5" stroke="#F2A65A" stroke-width="20" stroke-linecap="round"/>
+  <line x1="54.5" y1="201.5" x2="71.5" y2="184.5" stroke="#F2A65A" stroke-width="20" stroke-linecap="round"/>
+  <line x1="184.5" y1="71.5" x2="201.5" y2="54.5" stroke="#F2A65A" stroke-width="20" stroke-linecap="round"/>
+  <!-- Pulse wave -->
+  <path d="M64 128 L96 128 L112 80 L144 176 L160 128 L192 128" fill="none" stroke="#62D6C7" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

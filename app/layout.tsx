@@ -15,7 +15,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Heliowatch | Space Weather Dashboard",
+  title: "SolarPulse | Space Weather Dashboard",
   description: "Space weather, as it happens. Educational dashboard for the NASA Space Apps Challenge.",
 };
 
