@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Heliowatch
 
-## Getting Started
+> **Space weather, as it happens.**
 
-First, run the development server:
+Heliowatch is a production-quality, single-page Space Weather Dashboard built for the **μLearn / NASA Space Apps preselection challenge: "Space Weather Dashboard"**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+It converts live NOAA observations into a clear, visually polished overview of solar activity, geomagnetic storms, solar wind, and recent space-weather events.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Heliowatch Dashboard Screenshot 1](placeholder-screenshot-1.png)
+![Heliowatch Dashboard Screenshot 2](placeholder-screenshot-2.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Overview & Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Atmospheric Scientific Glassmorphism**: A meticulously crafted UI using Tailwind CSS designed to look like a modern mission-control interface.
+- **Live Telemetry & Metrics**: Displays up-to-date Geomagnetic Kp, Solar Flare X-ray flux, Solar Wind speed, and IMF Bz.
+- **Advanced Visualizations**: Uses `recharts` to render a 3-day planetary Kp bar chart, a 24h logarithmic X-ray flux line chart, and solar wind speed tracking.
+- **Event Timeline**: A unified feed of recent space weather alerts (solar flares, geomagnetic storms, CMEs).
+- **Intelligent Status Derivation**: Derives an overarching educational space-weather status (Quiet, Elevated, Storm) based on the latest NOAA scales and readings.
+- **Earth & Mission Impact**: Explains how current space weather conditions can affect satellites, navigation (GNSS), HF radio, and astronauts.
+- **Resilient API Architecture**: Aggregates multiple external sources server-side with strict timeouts and validation. Handled gracefully so one failed endpoint does not crash the dashboard.
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Charts**: Recharts
+- **Icons**: Lucide React
+- **Dates**: date-fns
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Data Sources & Verified Endpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This dashboard fetches data exclusively from official, public government space-weather APIs.
 
-## Deploy on Vercel
+**NOAA Space Weather Prediction Center (SWPC):**
+- Planetary Kp Index: `https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json`
+- NOAA Scales (G, S, R): `https://services.swpc.noaa.gov/products/noaa-scales.json`
+- GOES Primary X-ray Flux: `https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json`
+- Real-time Solar Wind (Speed): `https://services.swpc.noaa.gov/json/rtsw/rtsw_wind_1m.json`
+- Real-time Solar Wind (Mag): `https://services.swpc.noaa.gov/json/rtsw/rtsw_mag_1m.json`
+- Alerts & Watches: `https://services.swpc.noaa.gov/products/alerts.json`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**NASA CCMC DONKI:**
+- *Note:* During integration testing, the NASA DONKI API (`https://ccmc.gsfc.nasa.gov/DONKI-API/get/FLR`) was verified but observed to timeout consistently. To maintain dashboard resilience, Heliowatch gracefully marks DONKI as unavailable and relies on NOAA SWPC for all space event telemetry.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Local Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd nasa-space-apps-challenge
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Environment Variables:**
+   - Copy `.env.example` to `.env` (No API keys are required; everything uses public keyless endpoints).
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:3000` with your browser to see the result.
+
+## Environment Variables
+
+No API keys or authentication secrets are required to run this project. A `.env.example` file is included purely for standardizing configurations if needed in the future.
+
+## Disclaimer
+
+**Educational visualization only.** This dashboard uses publicly available NASA and NOAA space-weather data but is not an official forecast or warning service. Not affiliated with NASA or NOAA.
