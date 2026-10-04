@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-brand-bg: #070A10;
+  --color-brand-panel: rgba(18, 24, 36, 0.62);
+  --color-brand-panel-strong: rgba(24, 32, 48, 0.75);
+  --color-brand-border: rgba(255, 255, 255, 0.07);
+  --color-brand-text: #E6EAF2;
+  --color-brand-muted: #8A94A8;
+  --color-brand-accent: #7FB2D9;
+  --color-brand-success: #5FBF8A;
+  --color-brand-warning: #E8B04A;
+  --color-brand-severe: #E5645A;
+  
+  --font-sans: var(--font-ibm-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.glass-panel {
+  background-color: var(--color-brand-panel);
+  border: 1px solid var(--color-brand-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+}
+
+.glass-panel-strong {
+  background-color: var(--color-brand-panel-strong);
+}
+
+/* Recharts custom styling fixes */
+.recharts-cartesian-axis-tick-value {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--color-brand-muted);
+}
+.recharts-tooltip-wrapper {
+  outline: none !important;
 }
